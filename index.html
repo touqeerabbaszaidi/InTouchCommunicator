@@ -162,7 +162,8 @@
                                         //alert(response);
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
-                                            $("#Something").append("<center><a href='ataglance.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' style='padding: 3px 0px 3px 0px;display:block;width: 190px;text-align:center;text-decoration:none;font-size:17px;margin: 2px 0px 2px 0px;font-family:Arial'>" + prods.SchoolName + "</a></center>");
+
+                                            $("#UlOrganization").append("<li><a href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' class='km-listview-link'><h2 style='padding-bottom: 20px; text-align: center;'>" + prods.SchoolName + "</h2></a></li>");
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
                                             if (type != '' && type != undefined) {
@@ -209,6 +210,7 @@
         }
 
         function LoginBusinessAdmin() {
+            //  alert("yes");
             $.ajax({
                 type: "POST",
                 url: 'http://mobile.intouchcommunicator.com/WebService.asmx/MobileAppGetSchoolByEmailPassword',
@@ -218,17 +220,19 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
+
                     if (response.d != null && response.d != "") {
                         var prods = response.d;
                         var Kewords = {};
                         Kewords = response.d;
                         var schooluserid = Kewords[0].SchoolId;
-                        // alert(schooluserid);
+                        //  alert(schooluserid);
+                        //alert("aha");
                         $("#Something").show();
                         $("#wraper").hide();
                         $.each(prods, function (index, prod) {
 
-                            //alert(schooluserid);
+                            // alert(schooluserid);
                             //var username = prod.FirstName + " " + prod.LastName;
                             var username = "Admin";
                             $.ajax({
@@ -243,7 +247,8 @@
                                     if (response != null && response != "") {
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
-                                            $("#Something").append("<center><a href='ataglance.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' style='padding: 3px 0px 3px 0px;display:block;width: 190px;text-align:center;text-decoration:none;font-size:17px;margin: 2px 0px 2px 0px;font-family:Arial;'>" + prods.SchoolName + "</a></center>");
+                                            document.getElementById("UlOrganization").innerHTML += "<li><a href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' class='km-listview-link'><h2 style='padding-bottom: 20px; text-align: center;'>" + prods.SchoolName + "</h2></a></li>";
+                                            //  $("#UlOrganization").append("<li><a href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' class='km-listview-link' data-role='listview-link'><h2 style='padding-bottom: 20px; text-align: center;'>" + prods.SchoolName + "</h2></a></li>");
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
                                             if (type != '' && type != undefined) {
@@ -321,7 +326,7 @@
                                     if (response != null && response != "") {
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
-                                            $("#Something").append("<center><a href='ataglance.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' style='padding: 3px 0px 3px 0px;display:block;width: 190px;text-align:center;text-decoration:none;font-size:17px;margin: 2px 0px 2px 0px;font-family:Arial;'>" + prods.SchoolName + "</a></center>");
+                                            $("#UlOrganization").append("<li><a href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' class='km-listview-link' ><h2 style='padding-bottom: 20px; text-align: center;'>" + prods.SchoolName + "</h2></a></li>");
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
                                             if (type != '' && type != undefined) {
