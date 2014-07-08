@@ -1,8 +1,10 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
-    
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>InTouchApp</title>
     <script src="JS/jquery.min.js"></script>
     <script src="JS/kendo.all.min.js"></script>
     <link href="Css/kendo.mobile.all.min.css" rel="stylesheet" />
@@ -53,8 +55,8 @@
 
 
         $(document).ready(function () {
-       // alert("ready");
-             $('#dvLoading').fadeOut(10);
+            // alert("ready");
+            $('#dvLoading').fadeOut(10);
             //$("#dvLoading").fadeOut();
             var online = navigator.onLine;    // Detecting the internet connection
             //alert(online);
@@ -75,9 +77,9 @@
             // });
 
             //var form = $("#loginForm");
-            if (window.localStorage["username"] != 'undefined' && window.localStorage["password"] != 'undefined' && window.localStorage["username"] != '' && window.localStorage["password"] != '' && window.localStorage["username"] != null && window.localStorage["password"]!=null) {
-              //  alert("local");
-                 $("#dvLoading").fadeIn(400);
+            if (window.localStorage["username"] != 'undefined' && window.localStorage["password"] != 'undefined' && window.localStorage["username"] != '' && window.localStorage["password"] != '' && window.localStorage["username"] != null && window.localStorage["password"] != null) {
+                //  alert("local");
+                $("#dvLoading").fadeIn(400);
                 // $("#dvLoading").fadeIn(2000);
                 $("#txtEmail").val(window.localStorage["username"]);
                 $("#txtPassword").val(window.localStorage["password"]);
@@ -86,7 +88,7 @@
                 setTimeout(function () {
                     UserLogin(); LoginBusinessAdmin();
                     LoginBackOfficeUser();
-                   
+
                     $('#dvLoading').fadeOut(2000);
                     //var type = getUrlVars()["type"];
                     //alert("Query String Type: " + type);
@@ -106,8 +108,8 @@
                     //}
                 }, 3000);
             }
-            
-            
+
+
             //alert("button Logged2. email: " + $('#txtEmail').val());
             registerPushwoosh($('#txtEmail').val());
             //alert("registerPushwoosh");
@@ -127,7 +129,7 @@
         var flag2 = "false";
         var flag3 = "false";
         var flag4 = "false";
-      
+
 
         function UserLogin() {
             //alert("button clicked.");
@@ -160,8 +162,7 @@
                                         //alert(response);
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
-
-                                            $("#UlOrganization").append("<li><a href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' class='km-listview-link'><h2 style='padding-bottom: 20px; text-align: center;'>" + prods.SchoolName + "</h2></a></li>");
+                                            $("#Something").append("<center><a href='ataglance.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' style='padding: 3px 0px 3px 0px;display:block;width: 190px;text-align:center;text-decoration:none;font-size:17px;margin: 2px 0px 2px 0px;font-family:Arial'>" + prods.SchoolName + "</a></center>");
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
                                             if (type != '' && type != undefined) {
@@ -208,7 +209,6 @@
         }
 
         function LoginBusinessAdmin() {
-            //  alert("yes");
             $.ajax({
                 type: "POST",
                 url: 'http://mobile.intouchcommunicator.com/WebService.asmx/MobileAppGetSchoolByEmailPassword',
@@ -218,19 +218,17 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
-
                     if (response.d != null && response.d != "") {
                         var prods = response.d;
                         var Kewords = {};
                         Kewords = response.d;
                         var schooluserid = Kewords[0].SchoolId;
-                        //  alert(schooluserid);
-                        //alert("aha");
+                        // alert(schooluserid);
                         $("#Something").show();
                         $("#wraper").hide();
                         $.each(prods, function (index, prod) {
 
-                            // alert(schooluserid);
+                            //alert(schooluserid);
                             //var username = prod.FirstName + " " + prod.LastName;
                             var username = "Admin";
                             $.ajax({
@@ -245,8 +243,7 @@
                                     if (response != null && response != "") {
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
-                                            document.getElementById("UlOrganization").innerHTML += "<li><a href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' class='km-listview-link'><h2 style='padding-bottom: 20px; text-align: center;'>" + prods.SchoolName + "</h2></a></li>";
-                                            //  $("#UlOrganization").append("<li><a href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' class='km-listview-link' data-role='listview-link'><h2 style='padding-bottom: 20px; text-align: center;'>" + prods.SchoolName + "</h2></a></li>");
+                                            $("#Something").append("<center><a href='ataglance.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' style='padding: 3px 0px 3px 0px;display:block;width: 190px;text-align:center;text-decoration:none;font-size:17px;margin: 2px 0px 2px 0px;font-family:Arial;'>" + prods.SchoolName + "</a></center>");
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
                                             if (type != '' && type != undefined) {
@@ -324,7 +321,7 @@
                                     if (response != null && response != "") {
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
-                                            $("#UlOrganization").append("<li><a href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' class='km-listview-link' ><h2 style='padding-bottom: 20px; text-align: center;'>" + prods.SchoolName + "</h2></a></li>");
+                                            $("#Something").append("<center><a href='ataglance.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' style='padding: 3px 0px 3px 0px;display:block;width: 190px;text-align:center;text-decoration:none;font-size:17px;margin: 2px 0px 2px 0px;font-family:Arial;'>" + prods.SchoolName + "</a></center>");
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
                                             if (type != '' && type != undefined) {
@@ -468,10 +465,6 @@
                 <tr>
 
                     <td><input type="button" value="LOGIN" onclick="clickSubmit();" /></td>
-                </tr>
-                <tr>
-
-                    <td><input type="button" value="Log In with Facebook" onclick="login()" /></td>
                 </tr>
                 <tr>
 
