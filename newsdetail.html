@@ -76,7 +76,7 @@
                     var Kewords = {};
                     Kewords = response.d;
                     for (i = 0; i < Kewords.length; i++) {
-                        document.getElementById("UlNews").innerHTML += "<li><h2>" + Kewords[i].NewsHeading + "</h2><p>" + Kewords[i].NewsDescription + "</p></li>";
+                        document.getElementById("UlNews").innerHTML += "<li><a class='km-listview-link'><h2>" + Kewords[i].NewsHeading + "</h2><p>" + Kewords[i].NewsDescription + "</p></a></li>";
                     }
 
                 },
