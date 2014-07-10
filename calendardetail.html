@@ -97,8 +97,8 @@
                         //})
                         //    )));
                         
-                        $('ul').append("<li><a><h2>" + Kewords[i].CalendarEventTitle + "</h2><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br />" + Kewords[i].CalendarEventDescription + "</p></a></li>");
-                         $('ul').listview('refresh');
+                        $('ul').append("<li><a><h2>" + Kewords[i].CalendarEventTitle + "</h2><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br />" + Kewords[i].CalendarEventDescription + "</p></a></li>").listview('refresh', true);
+                         $('ul').listview('refresh', true);
                     }
 
                 },
