@@ -96,14 +96,15 @@
                         //    '':''
                         //})
                         //    )));
-                        $('UlCalender').trigger('create');
+                       
                         $('#UlCalender').append("<li><h2>" + Kewords[i].CalendarEventTitle + "</h2><br /><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br /><br />" + Kewords[i].CalendarEventDescription + "</p>");
                         
                     }
 
                 },
-                complete: function() {
-                    $('#UlCalender').listview('refresh');
+                complete: function () {
+                    alert("yes");
+                    $('#UlCalender').listview('refresh', true);
                 },
                 failure: function (errMsg) {
                     $('#errorMessage').text(errMsg); //errorMessage is id of the div
