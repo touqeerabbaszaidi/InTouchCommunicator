@@ -96,17 +96,15 @@
                         //    '':''
                         //})
                         //    )));
-                       
-                        var List= "<li><h2>" + Kewords[i].CalendarEventTitle + "</h2><br /><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br /><br />" + Kewords[i].CalendarEventDescription + "</p>");
-                        $("#UlCalender").html(List);
-
+                        $("h2").text("" + Kewords[i].CalendarEventTitle + "");
+                        //$('#UlCalender').append("<li><h2>" + Kewords[i].CalendarEventTitle + "</h2><br /><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br /><br />" + Kewords[i].CalendarEventDescription + "</p>");
+                        
                     }
-                    $('#UlCalender').listview().listview('refresh');
 
                 },
                 complete: function () {
-                    alert("yes");
-                    $('#UlCalender').listview('refresh', true);
+                   
+                 
                 },
                 failure: function (errMsg) {
                     $('#errorMessage').text(errMsg); //errorMessage is id of the div
@@ -169,13 +167,13 @@
         <h1 id="TitleDisplay">Calender Detail</h1>
         <br />
         <ul data-role="listview" class="NewsDislay km-widget km-listview km-list" id="UlCalender">
-            <!--<li>
+            <li>
             <a>
-                <h2>News Title here displayed</h2>
-                <p>28-5-2014, Wednesday</p>
+                <h2></h2>
+                <p>28-5-</p>
             </a>
             </li>
-            <li>
+            <!--<li>
             <a>
                 <h2>News Title here displayed</h2>
                 <p>28-5-2014, Wednesday</p>
