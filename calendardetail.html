@@ -88,19 +88,22 @@
                         var date2 = new Date(parseInt(Time2)).format("h:MM, TT") + ", " + new Date(parseInt(milli2)).format("mmm dd,yyyy");
                         var Location = Kewords[i].EventLocation;
                     // document.getElementById("UlCalender").innerHTML = "<li><a><h2>" + Kewords[i].CalendarEventTitle + "</h2><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br />" + Kewords[i].CalendarEventDescription + "</p></a></li>";
-                        //$('ul').append($('<li/>', {
+                        $('ul').append($('<li/>', {
 
-                        //}).append($('<a/>', {
-                        //    'class': 'km-listview-link'
-                        //}).append($('<h2/>', {
-                        //    '':''
-                        //})
-                        //    )));
+                        }).append($('<a/>', {
+                            'class': 'km-listview-link'
+                        }).append($('<h2/>', {
+                            '':''
+                        })
+                            )));
                         
-                        $('ul').append("<li><a><h2>" + Kewords[i].CalendarEventTitle + "</h2><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br />" + Kewords[i].CalendarEventDescription + "</p></a></li>").listview('refresh', true);
-                         $('ul').listview('refresh', true);
+                        $('#UlCalender').append("<li><h2>" + Kewords[i].CalendarEventTitle + "</h2><br /><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br /><br />" + Kewords[i].CalendarEventDescription + "</p>");
+                        
                     }
 
+                },
+                complete: function() {
+                    $('UlCalender').listview('refresh');
                 },
                 failure: function (errMsg) {
                     $('#errorMessage').text(errMsg); //errorMessage is id of the div
