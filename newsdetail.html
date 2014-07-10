@@ -76,9 +76,7 @@
                     var Kewords = {};
                     Kewords = response.d;
                     for (i = 0; i < Kewords.length; i++) {
-                        $("h2").text("" + Kewords[i].NewsHeading + "");
-                        $("p").text("" + Kewords[i].NewsDescription + "");
-                        // document.getElementById("UlNews").innerHTML += "<li><a class='km-listview-link'><h2>" + Kewords[i].NewsHeading + "</h2><p>" + Kewords[i].NewsDescription + "</p></a></li>";
+                        document.getElementById("UlNews").innerHTML += "<li><a class='km-listview-link'><h2>" + Kewords[i].NewsHeading + "</h2><p>" + Kewords[i].NewsDescription + "</p></a></li>";
                     }
 
                 },
@@ -143,13 +141,13 @@
         <h1 id="TitleDisplay">News</h1>
         <br />
         <ul data-role="listview" class="NewsDislay km-widget km-listview km-list" id="UlNews">
-            <li>
+            <!--<li>
             <a>
-                <h2></h2>
-                <p></p>
+                <h2>News Title here displayed</h2>
+                <p>28-5-2014, Wednesday</p>
             </a>
             </li>
-           <!-- <li>
+            <li>
             <a>
                 <h2>News Title here displayed</h2>
                 <p>28-5-2014, Wednesday</p>
@@ -170,7 +168,7 @@
                 <!--<a data-role="button" data-rel="drawer" href="#my-drawer" data-align="left">
                     <img src="Images/SwipeMenuICO.png" id="MenuICOBtn" />
                 </a>-->
-                <input type="image" src="Images/arrows_back_forward.png" id="btnBack" width="45" data-align="left" style="margin-top:-15px;" />
+                <input type="image" src="Images/arrows_back_forward.png" id="btnBack" width="45" data-align="left" style="margin-top:-5px;" />
                 <span data-role="view-title" id="BusinessTitle"></span>
                 <!-- <a data-align="right" data-role="button" class="nav-button" href="#/">Index</a> -->
             </div>
