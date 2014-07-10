@@ -87,7 +87,7 @@
                         var date1 = new Date(parseInt(Time1)).format("h:MM, TT") + ", " + new Date(parseInt(milli)).format("mmm dd,yyyy");
                         var date2 = new Date(parseInt(Time2)).format("h:MM, TT") + ", " + new Date(parseInt(milli2)).format("mmm dd,yyyy");
                         var Location = Kewords[i].EventLocation;
-                     document.getElementById("UlCalender").innerHTML += "<li><a><h2>" + Kewords[i].CalendarEventTitle + "</h2><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br />" + Kewords[i].CalendarEventDescription + "</p></a></li>";
+                     document.getElementById("UlCalender").innerHTML = "<li><a><h2>" + Kewords[i].CalendarEventTitle + "</h2><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br />" + Kewords[i].CalendarEventDescription + "</p></a></li>";
                       //  $("#UlCalender").append("<li><h2>" + Kewords[i].CalendarEventTitle + "</h2><br /><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br /><br />" + Kewords[i].CalendarEventDescription + "</p>");
                     }
 
@@ -153,7 +153,7 @@
         <h1 id="TitleDisplay">Calender Detail</h1>
         <br />
         <ul data-role="listview" class="NewsDislay km-widget km-listview km-list" id="UlCalender">
-            <li>
+            <!--<li>
             <a>
                 <h2>News Title here displayed</h2>
                 <p>28-5-2014, Wednesday</p>
@@ -164,7 +164,7 @@
                 <h2>News Title here displayed</h2>
                 <p>28-5-2014, Wednesday</p>
             </a>
-            </li>
+            </li>-->
         </ul>
 
 
