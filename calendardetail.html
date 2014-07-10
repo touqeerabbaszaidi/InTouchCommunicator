@@ -97,9 +97,11 @@
                         //})
                         //    )));
                        
-                        $('#UlCalender').append("<li><h2>" + Kewords[i].CalendarEventTitle + "</h2><br /><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br /><br />" + Kewords[i].CalendarEventDescription + "</p>");
-                        
+                        var List= "<li><h2>" + Kewords[i].CalendarEventTitle + "</h2><br /><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br /><br />" + Kewords[i].CalendarEventDescription + "</p>");
+                        $("#UlCalender").html(List);
+
                     }
+                    $('#UlCalender').listview().listview('refresh');
 
                 },
                 complete: function () {
