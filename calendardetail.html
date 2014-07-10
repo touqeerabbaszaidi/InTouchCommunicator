@@ -97,8 +97,9 @@
                         //})
                         //    )));
                         
-                        $('#UlCalender').append("<li><h2>" + Kewords[i].CalendarEventTitle + "</h2><br /><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br /><br />" + Kewords[i].CalendarEventDescription + "</p>");
-                        
+                      //  $('#UlCalender').append("<li><h2>" + Kewords[i].CalendarEventTitle + "</h2><br /><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br /><br />" + Kewords[i].CalendarEventDescription + "</p>");
+                        document.getElementById("heading2").innerHTML = Kewords[i].CalendarEventTitle;
+                        document.getElementById("pid").innerHTML = "" + date1 + " to  " + date2 + ", " + Location + "<br /><br /><br />" + Kewords[i].CalendarEventDescription + "";
                     }
 
                 },
@@ -166,18 +167,13 @@
         <h1 id="TitleDisplay">Calender Detail</h1>
         <br />
         <ul data-role="listview" class="NewsDislay km-widget km-listview km-list" id="UlCalender">
-            <!--<li>
-            <a>
-                <h2>News Title here displayed</h2>
-                <p>28-5-2014, Wednesday</p>
-            </a>
-            </li>
             <li>
             <a>
-                <h2>News Title here displayed</h2>
-                <p>28-5-2014, Wednesday</p>
+                <h2 id="heading2"></h2>
+                <p id="pid"></p>
             </a>
-            </li>-->
+            </li>
+          
         </ul>
 
 
