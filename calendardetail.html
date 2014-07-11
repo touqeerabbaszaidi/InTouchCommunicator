@@ -97,14 +97,14 @@
                         //})
                         //    )));
                        
-                        $('#UlCalender').append("<li><h2>" + Kewords[i].CalendarEventTitle + "</h2><br /><p>" + date1 + " to  " + date2 + ", " + Location + "<br /><br /><br />" + Kewords[i].CalendarEventDescription + "</p>");
+                        $('#UlCalender').append("<li><h2 style='clear:both;'>" + Kewords[i].CalendarEventTitle + "</h2><p style='clear:both;'>" + date1 + " to  " + date2 + ", " + Location + "<br /><br /><br />" + Kewords[i].CalendarEventDescription + "</p>");
                         
                     }
 
                 },
                 complete: function () {
-                    alert("yes");
-                    $("#UlCalender").listview("refresh", true);
+                  //  alert("yes");
+                //    $("#UlCalender").listview("refresh", true);
                 },
                 failure: function (errMsg) {
                     $('#errorMessage').text(errMsg); //errorMessage is id of the div
@@ -141,7 +141,7 @@
             var usernamewithoutspace = getUrlVars()["username"];
             var username = usernamewithoutspace.replace("%20", " ");
             // $("#LoginUser").append("" + username + "");
-            $("#my-drawer h2").text("" + username + "");
+            //$("#my-drawer h2").text("" + username + "");
         }
 
         function GetFunctions() {
@@ -150,7 +150,7 @@
             GetSchoolInfo();
             //alert("Get Calender");
             //GetCalender();
-            GetUsername();
+            //GetUsername();
             // alert("Perfect.");
         }
 
@@ -166,7 +166,8 @@
 
         <h1 id="TitleDisplay">Calender Detail</h1>
         <br />
-        <ul data-role="listview" class="NewsDislay km-widget km-listview km-list" id="UlCalender">
+
+        <ul data-role="listview" id="UlCalender">
             <!--<li>
             <a>
                 <h2>News Title here displayed</h2>
