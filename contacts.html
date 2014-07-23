@@ -107,26 +107,6 @@
 
         var querystring = getUrlVars()["value"];
         Paramdata = { "SchoolId": querystring }
-        function GetSchoolInfo() {
-            $.ajax({
-                url: 'http://mobile.intouchcommunicator.com/WebService.asmx/GetSchool_SchoolIdWise',
-                // url: 'http://projectxmobile.2bvision.com/WebService.asmx/GetSchool_SchoolIdWise',
-                //url: 'WebService.asmx/GetSchool_SchoolIdWise',
-                type: 'POST',
-                data: JSON.stringify(Paramdata),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    var Kewords = {};
-                    Kewords = response.d;
-                    //document.getElementById("imgSchoolLogo").src = "http://projectX.2bvision.com/projectx/superadmin/SchoolLogo/" + Kewords.SchoolLogo;
-                    $('#BusinessTitle').append("" + Kewords.SchoolName + "");
-                },
-                failure: function (errMsg) {
-                    $('#errorMessage').text(errMsg); //errorMessage is id of the div
-                }
-            });
-        }
 
         $(document).ready(function () {
             assignLinks();
