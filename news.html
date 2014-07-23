@@ -177,12 +177,13 @@
                 }
 
             });
-            $("#dlNews a").live('click', function () {
+            $("#dlNews a").live('click', function (e) {
 
 
                 var prods = $(this).attr('href');
                 // alert(prods);
-                var ref = window.open(prods, '_blank', 'location=yes');
+                e.preventDefault();
+                window.open(prods, '_system');
 
                 return false;
             });
