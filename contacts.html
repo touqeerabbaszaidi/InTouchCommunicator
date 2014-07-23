@@ -12,6 +12,7 @@
 <link href="Css/kendo.all.min.js" rel="stylesheet" />
 <link href="Css/InTouchCustom.css" rel="stylesheet" />
 <script src="JS/jquery-1.8.3.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.ios.js"></script>
 <style>
 [href*=index], #back-button
 {
@@ -93,7 +94,7 @@
                     Kewords = response.d;
                     for (i = 0; i < Kewords.length; i++) {
                         //document.getElementById("dlContacts").innerHTML += "<dt>" + Kewords[i].StaffName + "</dt><dd>" + Kewords[i].PhoneNo + "<br />" + Kewords[i].EmailAddress + "</dd>";
-                        document.getElementById("UlContacts").innerHTML += "<li><a class='km-listview-link' data-role='listview-link'><h2>" + Kewords[i].StaffName + "</h2><p>" + Kewords[i].Designation + "</p><p style='margin-top:-20px; font-size:16px;'>" + Kewords[i].PhoneNo + "</p><p style='margin-top:-25px; font-size:16px;'>" + Kewords[i].EmailAddress + "</p></a></li>";
+                        document.getElementById("UlContacts").innerHTML += "<li style='clear:both;'><a class='km-listview-link'><h2>" + Kewords[i].StaffName + "</h2><p>" + Kewords[i].Designation + "</p><p style='margin-top:-20px; font-size:16px;'>" + Kewords[i].PhoneNo + "</p><p style='margin-top:-25px; font-size:16px;'>" + Kewords[i].EmailAddress + "</p></a></li>";
                     }
 
                 },
