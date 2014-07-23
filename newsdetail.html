@@ -12,7 +12,6 @@
 <link href="Css/kendo.all.min.js" rel="stylesheet" />
 <link href="Css/InTouchCustom.css" rel="stylesheet" />
 <script type="text/javascript" charset="utf-8" src="cordova.ios.js"></script>
-<script src="JS/phonegap-1.4.1.js" type="text/javascript"></script>
 <script src="JS/date.format.js" type="text/javascript"></script>
 <script src="JS/jquery-1.8.3.js" type="text/javascript"></script>
 <style>
@@ -92,10 +91,9 @@
             //alert("Get Functions");
             $("#dlNews a").live('click', function (e) {
 
-                e.preventDefault();
                 var prods = $(this).attr('href');
-                //  alert(prods);
-                var ref = window.open(prods, '_system');
+                // alert(prods);
+                var ref = window.open(prods, '_blank', 'location=yes');
 
                 return false;
             });
