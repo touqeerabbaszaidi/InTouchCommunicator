@@ -232,9 +232,18 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
+                    var testName = $("#" + ChannelID).attr("name");
 
-                    alert("Channel Activated Successfully");
+                 //   alert("Channel Activated Successfully");
+                    function alertDismissed() {
 
+                    }
+                    navigator.notification.alert(
+                             'Channel Activated Successfully',  // message
+                                 alertDismissed,         // callback
+                                  '' + testName + '',            // title
+                                     'Done'                  // buttonName
+                                           );
 
                 },
                 failure: function (errMsg) {
@@ -252,8 +261,17 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
-                    alert("Channel DeActivated Successfully");
+                    var testName = $("#" + ChannelID).attr("name");
+                    //alert("Channel DeActivated Successfully");
+                    function alertDismissed() {
 
+                    }
+                    navigator.notification.alert(
+                             'Channel DeActivated Successfully!',  // message
+                                 alertDismissed,         // callback
+                                  '' + testName + '',            // title
+                                     'Done'                  // buttonName
+                                           );
 
                 },
                 failure: function (errMsg) {
@@ -272,10 +290,18 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
+                    var testName = $("#" + GalleryId).attr("name");
+                   // alert("Gallery Activated Successfully");
 
-                    alert("Gallery Activated Successfully");
+                    function alertDismissed() {
 
-
+                    }
+                    navigator.notification.alert(
+                             'Gallery Activated Successfully',  // message
+                                 alertDismissed,         // callback
+                                  '' + testName + '',            // title
+                                     'Done'                  // buttonName
+                                           );
                 },
                 failure: function (errMsg) {
                     $('#errorMessage').text(errMsg); //errorMessage is id of the div GetUserActiveChannels_SchoolIdSchoolUserIdWise
@@ -293,9 +319,17 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
+                    var testName = $("#" + GalleryId).attr("name");
+                  //  alert("Gallery DeActivated Successfully");
+                    function alertDismissed() {
 
-                    alert("Gallery DeActivated Successfully");
-
+                    }
+                    navigator.notification.alert(
+                             'Gallery DeActivated Successfully',  // message
+                                 alertDismissed,         // callback
+                                  '' + testName + '',            // title
+                                     'Done'                  // buttonName
+                                           );
 
                 },
                 failure: function (errMsg) {

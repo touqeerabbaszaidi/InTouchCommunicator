@@ -89,11 +89,11 @@
             //alert("Assigning Links");
           
             //alert("Get Functions");
-            $("#dlNews a").live('click', function (e) {
+            $("#UlNews a").live('click', function () {
 
                 var prods = $(this).attr('href');
                 // alert(prods);
-                var ref = window.open(prods, '_blank', 'location=yes');
+                window.open(prods, '_system');
 
                 return false;
             });
