@@ -21,7 +21,30 @@
 }
 </style>
     <script type="text/javascript">
+        document.addEventListener("deviceready", onDeviceReady, false);
 
+        function onDeviceReady() {
+            checkConnection();
+        }
+
+        var getconstatus;
+
+        function checkConnection() {
+            var networkState = navigator.network.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN] = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI] = 'WiFi connection';
+            states[Connection.CELL_2G] = 'Cell 2G connection';
+            states[Connection.CELL_3G] = 'Cell 3G connection';
+            states[Connection.CELL_4G] = 'Cell 4G connection';
+            states[Connection.NONE] = 'No network connection';
+
+            getconstatus = states[networkState];
+
+            //alert('Connection type: ' + states[networkState]);
+        }
         function getUrlVars() {
             var vars = [], hash;
             var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
@@ -82,12 +105,27 @@
         $(document).ready(function () {
             //alert("ready");
             //downloadFile();
-            assignLinks();
+           // assignLinks();
             GetFunctions();
             $('#ddlChannels').change(function () {
-                var channelId = $('#ddlChannels').val();
-                if (channelId !== "0") {
-                    GetResourcesChannelIdWise(channelId);
+                checkConnection();
+                if (getconstatus == "No network connection") {
+                    function alertDismissed() {
+
+                    }
+                    navigator.notification.alert(
+                             'No network connection! First connect with your internet.',  // message
+                                 alertDismissed,         // callback
+                                  'Connection error ',            // title
+                                     'Ok'                  // buttonName
+                                           );
+
+                }
+                else {
+                    var channelId = $('#ddlChannels').val();
+                    if (channelId !== "0") {
+                        GetResourcesChannelIdWise(channelId);
+                    }
                 }
             });
             $("#lnkLogout").live("click", function () {
@@ -104,6 +142,31 @@
                 var prods = "http://intouchcommunicator.com/WebCommunicator/ViewResourceFile.aspx?filepath=" + path;
                 var ref = window.open(prods, '_blank', 'location=yes');
                 
+            });
+            $(".MenuLinks li a").click(function () {
+                checkConnection();
+                if (getconstatus == "No network connection") {
+                    function alertDismissed() {
+
+                    }
+                    navigator.notification.alert(
+                             'No network connection! First connect with your internet.',  // message
+                                 alertDismissed,         // callback
+                                  'Connection error ',            // title
+                                     'Ok'                  // buttonName
+                                           );
+
+                }
+                else {
+                    var Id = $(this).attr('id');
+                    var schoolId = getUrlVars()["value"];
+                    var schooluserid = getUrlVars()["userId"];
+                    var username = getUrlVars()["username"];
+                    //  alert(Id);
+
+                    window.location = "" + Id + ".html?value=" + schoolId + "&userId=" + schooluserid + "&username=" + username + "";
+                }
+
             });
 
         });
@@ -232,95 +295,8 @@
             <option value="Fourth Option">Fourth Option</option>-->
         </select>
     </div>
-    
-    
-    
-      
         <div id="Resourcesdiv">
-            <!--<table id="DisplayResources" border="0">
-                <tr>
-                    <td>
-                        <img src="Images/Icons/pdf_icon.png" width="72" />
-                    </td>
-                    <td>
-                        <h1>Resource Name Here</h1>
-                        <p>It is a long established fact.</p>
-                    </td>
-                    <td>
-                        <button>View</button>
-                    </td>
-                </tr>
-            </table>
-            <table id="DisplayResources" border="0">
-                <tr>
-                    <td>
-                        <img src="Images/Icons/image_icon.png" width="72" />
-                    </td>
-                    <td>
-                        <h1>Resource Name Here</h1>
-                        <p>It is a long established fact.</p>
-                    </td>
-                    <td>
-                        <button>View</button>
-                    </td>
-                </tr>
-            </table>
-            <table id="DisplayResources" border="0">
-                <tr>
-                    <td>
-                        <img src="Images/Icons/word_icon.png" width="72" />
-                    </td>
-                    <td>
-                        <h1>Resource Name Here</h1>
-                        <p>It is a long established fact.</p>
-                    </td>
-                    <td>
-                        <button>View</button>
-                    </td>
-                </tr>
-            </table>
-            <table id="DisplayResources" border="0">
-                <tr>
-                    <td>
-                        <img src="Images/Icons/powerpoint_icon.png" width="72" />
-                    </td>
-                    <td>
-                        <h1>Resource Name Here</h1>
-                        <p>It is a long established fact.</p>
-                    </td>
-                    <td>
-                        <button>View</button>
-                    </td>
-                </tr>
-            </table>
-            <table id="DisplayResources" border="0">
-                <tr>
-                    <td>
-                        <img src="Images/Icons/excel_icon.png" width="72" />
-                    </td>
-                    <td>
-                        <h1>Resource Name Here</h1>
-                        <p>It is a long established fact.</p>
-                    </td>
-                    <td>
-                        <button>View</button>
-                    </td>
-                </tr>
-            </table>
-            <table id="DisplayResources" border="0">
-                <tr>
-                    <td>
-                        <img src="Images/Icons/excel_icon.png" width="72" />
-                    </td>
-                    <td>
-                        <h1>Resource Name Here</h1>
-                        <p>It is a long established fact.</p>
-                    </td>
-                    <td>
-                        <button>View</button>
-                    </td>
-                </tr>
-            </table>-->
+           
         </div> 
     
 </div>
@@ -331,17 +307,17 @@
 	<h2 id="LoginUser"></h2>
     
     <ul data-role="listview" class="MenuLinks">
-        <li><a id="lnkAtAGlance" data-rel="external">Home</a></li>
-        <li><a id="lnkNews" data-rel="external">News</a></li>
-        <li><a id="lnkCalender" data-rel="external">Calender</a></li>
-        <li><a id="lnkGallery" data-rel="external">Gallery</a></li>
-        <li><a id="lnkContacts" data-rel="external">Contacts</a></li>
-        <li><a id="lnkResources" data-rel="external">Resources</a></li>
-        <li><a id="lnkMyDetail" data-rel="external">My Details</a></li>
-        <li><a id="lnkShare" data-rel="external">Share</a></li>
-        <li><a id="lnkPersonalize" data-rel="external">Personalize</a></li>
-        <li><a id="lnkUserPledges" data-rel="external">Donation</a></li>
-        <li><a id="lnkChangeSchool" data-rel="external">Change Organization</a></li>
+        <li><a id="Homepage" data-rel="external">Home</a></li>
+        <li><a id="news" data-rel="external">News</a></li>
+        <li><a id="calendar" data-rel="external">Calender</a></li>
+        <li><a id="Gallery" data-rel="external">Gallery</a></li>
+        <li><a id="contacts" data-rel="external">Contacts</a></li>
+        <li><a id="resources" data-rel="external">Resources</a></li>
+        <li><a id="mydetail" data-rel="external">My Details</a></li>
+        <li><a id="share" data-rel="external">Share</a></li>
+        <li><a id="personalize" data-rel="external">Personalize</a></li>
+        <li><a id="UserPledges" data-rel="external">Donation</a></li>
+        <li><a id="changeschool" data-rel="external">Change Organization</a></li>
         <li><a id="lnkLogout" data-rel="external">Logout</a></li>
     </ul>
 

@@ -69,13 +69,29 @@
                                        );
             }
             else {
-                $("divLoading").fadeIn(400);
-                $("divLoading").fadeOut(2000);
-                handleLogin();
-                registerPushwooshIOS($('#txtEmail').val());
-                UserLogin();
-                LoginBusinessAdmin();
-                LoginBackOfficeUser();
+                if ($("txtEmail").val() == "" || $("txtPassword").val() == "") {
+                    //alert("You must enter a username and password");
+                    function alertDismissed() {
+
+                    }
+                    navigator.notification.alert(
+                             'You must enter a username and password',  // message
+                                 alertDismissed,         // callback
+                                  'Empty user detail',            // title
+                                     'Ok'                  // buttonName
+                                           );
+                }
+                else {
+                    flag1 = "false";
+                    flag2 = "false";
+                    $("divLoading").fadeIn(400);
+                    $("divLoading").fadeOut(2000);
+                    handleLogin();
+                    registerPushwooshIOS($('#txtEmail').val());
+                    UserLogin();
+                    LoginBusinessAdmin();
+                    LoginBackOfficeUser();
+                }
             }
         }
 

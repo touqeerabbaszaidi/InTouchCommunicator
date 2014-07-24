@@ -208,10 +208,25 @@
           //  alert("Assigning Links");
            // assignLinks();
             $('#ddlChannels').change(function () {
+                checkConnection();
+                if (getconstatus == "No network connection") {
+                    function alertDismissed() {
+
+                    }
+                    navigator.notification.alert(
+                             'No network connection! First connect with your internet.',  // message
+                                 alertDismissed,         // callback
+                                  'Connection error ',            // title
+                                     'Ok'                  // buttonName
+                                           );
+
+                }
+                else {
                 var channelId = $('#ddlChannels').val();
                 if (channelId !== "0") {
                     GetCalenderChannelIdWise(channelId);
                 }
+              }
 
             });
             $("#lnkLogout").live("click", function () {
@@ -224,8 +239,6 @@
             $(".MenuLinks li a").click(function () {
                 checkConnection();
                 if (getconstatus == "No network connection") {
-                    // alert("No network connection! First connect with your internet.");
-
                     function alertDismissed() {
 
                     }
