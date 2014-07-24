@@ -74,13 +74,13 @@
 
                         }
                         navigator.notification.alert(
-                                 'Thank you Sharing' + $("#hiddenfield").val(),  // message
+                                 'Thank you Sharing',  // message
                                      alertDismissed,         // callback
                                       'Success',            // title
                                          'Ok'                  // buttonName
                                                );
-                        $('#txtYourFriendEmail').val() = "";
-                        $('#txtYourFriendName').val() = "";
+                        $('#txtYourFriendEmail').text = "";
+                        $('#txtYourFriendName').text = "";
 
                     },
                     failure: function (errMsg) {
@@ -147,7 +147,7 @@
                     //document.getElementById("imgSchoolLogo").src = "http://projectX.2bvision.com/projectx/superadmin/SchoolLogo/" + Kewords.SchoolLogo;
                     // document.getElementById("drawer-home").innerHTML = "<b>" + Kewords.SchoolName + "</b>";
                     $('#BusinessTitle').append("" + Kewords.SchoolName + "");
-                    $("#hiddenfield").val() = Kewords.SchoolName;
+                   
                 },
                 failure: function (errMsg) {
                     $('#errorMessage').text(errMsg); //errorMessage is id of the div
@@ -229,7 +229,7 @@
         </tr>
 	</table>
     
-<input type="hidden" id="hiddenfield" value="" />
+
    
     </div>    
     
