@@ -69,7 +69,18 @@
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (response) {
-                        alert("Shared Successfully");
+                        // alert("Shared Successfully");
+                        function alertDismissed() {
+
+                        }
+                        navigator.notification.alert(
+                                 'Thank you Sharing' + $("#hiddenfield").val(),  // message
+                                     alertDismissed,         // callback
+                                      'Success',            // title
+                                         'Ok'                  // buttonName
+                                               );
+                        $('#txtYourFriendEmail').val() = "";
+                        $('#txtYourFriendName').val() = "";
 
                     },
                     failure: function (errMsg) {
@@ -115,6 +126,7 @@
             var username = usernamewithoutspace.replace("%20", " ");
             // $("#LoginUser").append("" + username + "");
             $("#my-drawer h2").text("" + username + "");
+            
         }
         
 
@@ -135,6 +147,7 @@
                     //document.getElementById("imgSchoolLogo").src = "http://projectX.2bvision.com/projectx/superadmin/SchoolLogo/" + Kewords.SchoolLogo;
                     // document.getElementById("drawer-home").innerHTML = "<b>" + Kewords.SchoolName + "</b>";
                     $('#BusinessTitle').append("" + Kewords.SchoolName + "");
+                    $("#hiddenfield").val() = Kewords.SchoolName;
                 },
                 failure: function (errMsg) {
                     $('#errorMessage').text(errMsg); //errorMessage is id of the div
@@ -194,14 +207,14 @@
     <div class="DetailForm">
 
 	<table class="Container" border="0">
-		<tr>
+		<!--<tr>
         	<td><label>Name</label></td>
             <td><input type="text" id="txtYourName" /></td>
         </tr>
 		<tr>
         	<td><label>Email</label></td>
             <td><input type="text" id="txtYourEmail" /></td>
-        </tr>
+        </tr>-->
 		<tr>
         	<td><label>Friend's Name</label></td>
             <td><input type="text" id="txtYourFriendName" /></td>
@@ -216,7 +229,7 @@
         </tr>
 	</table>
     
-
+<input type="hidden" id="hiddenfield" value="" />
    
     </div>    
     
