@@ -69,6 +69,7 @@
                                        );
             }
             else {
+                alert($("txtEmail").val());
                 if ($("txtEmail").val() == "" || $("txtPassword").val() == "") {
                     //alert("You must enter a username and password");
                     function alertDismissed() {
@@ -163,7 +164,9 @@
                 }, 3000);
             }
 
-
+            $("#signuptag").click(function () {
+                window.open("http://www.intouchcommunicator.com/WebCommunicator/SchoolUserRegisteration.aspx", '_system');
+            });
             //alert("button Logged2. email: " + $('#txtEmail').val());
             registerPushwoosh($('#txtEmail').val());
             //alert("registerPushwoosh");
@@ -536,7 +539,7 @@
                 </tr>
                 <tr>
 
-                    <td><center><p>Don't have an Account?<a href="http://www.intouchcommunicator.com/WebCommunicator/SchoolUserRegisteration.aspx" target="_blank">Sign Up</a></p></center></td>
+                    <td><center><p>Don't have an Account?<a id="signuptag">Sign Up</a></p></center></td>
                 </tr>
             </table>
 
