@@ -19,10 +19,33 @@
     <script type="text/javascript" src="PushNotification.js"></script>
     <script type="text/javascript" src="JS/index.js"></script>
     <script type="text/javascript">
-        app.initialize();
+      //  app.initialize();
     </script>
     <script type="text/javascript">
+        document.addEventListener("deviceready", onDeviceReady, false);
 
+        function onDeviceReady() {
+            checkConnection();
+        }
+
+        var getconstatus;
+
+        function checkConnection() {
+            var networkState = navigator.network.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN] = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI] = 'WiFi connection';
+            states[Connection.CELL_2G] = 'Cell 2G connection';
+            states[Connection.CELL_3G] = 'Cell 3G connection';
+            states[Connection.CELL_4G] = 'Cell 4G connection';
+            states[Connection.NONE] = 'No network connection';
+
+            getconstatus = states[networkState];
+
+            //alert('Connection type: ' + states[networkState]);
+        }
         //function registerPushMethod() {//alert('test method');
         //    registerPushwoosh($('#txtEmail').val());
         //}
@@ -32,14 +55,28 @@
             //alert('aaaojeeee aaaojeeee');
             //alert("button clicked.");
             //alert($('#txtEmail').val());
-            $("divLoading").fadeIn(400);
-            $("divLoading").fadeOut(2000);
-            handleLogin();
-            registerPushwooshIOS($('#txtEmail').val());
-            UserLogin();
-            LoginBusinessAdmin();
-            LoginBackOfficeUser();
+            checkConnection();
+            if (getconstatus == "No network connection") {
 
+                function alertDismissed() {
+
+                }
+                navigator.notification.alert(
+                         'No network connection! First connect with your internet.',  // message
+                             alertDismissed,         // callback
+                              ' Connection error',            // title
+                                 'Ok'                  // buttonName
+                                       );
+            }
+            else {
+                $("divLoading").fadeIn(400);
+                $("divLoading").fadeOut(2000);
+                handleLogin();
+                registerPushwooshIOS($('#txtEmail').val());
+                UserLogin();
+                LoginBusinessAdmin();
+                LoginBackOfficeUser();
+            }
         }
 
         function getUrlVars() {
