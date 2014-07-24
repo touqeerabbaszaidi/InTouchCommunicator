@@ -148,12 +148,29 @@
         function UpdateMyDetails() {
             checkConnection();
             if (getconstatus == "No network connection") {
-                alert("No network connection! First connect with your internet.");
+                function alertDismissed() {
+
+                }
+                navigator.notification.alert(
+                            'No network connection! First connect with your internet.',  // message
+                                alertDismissed,         // callback
+                                 'Connection error ',            // title
+                                    'Ok'                  // buttonName
+                                          );
 
             }
             else {
                 if ($("#txtPhone").val() == "" || $("#txtPhone").val().length < 10) {
-                    alert("Please Enter a Valid Phone Number");
+                    // alert("Please Enter a Valid Phone Number");
+                    function alertDismissed() {
+
+                    }
+                    navigator.notification.alert(
+                             'Please Enter a Valid Phone Number',  // message
+                                 alertDismissed,         // callback
+                                  ' Phone Required',            // title
+                                     'Ok'                  // buttonName
+                                           );
                     $('#txtPhone').focus();
                     return;
                 }
