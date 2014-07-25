@@ -221,7 +221,7 @@
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
 
-                                            $("#UlOrganization").append("<li><a style='clear:both;' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "'  class='km-listview-link'><h2 style='padding-bottom: 20px; text-align: center; clear:both;'>" + prods.SchoolName + "</h2></a></li>");
+                                            $("#UlOrganization").append("<li><a style='clear:both;' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' ><h2 style='padding-bottom: 20px; text-align: center; clear:both;'>" + prods.SchoolName + "</h2></a></li>");
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
                                             if (type != '' && type != undefined) {
@@ -305,7 +305,7 @@
                                     if (response != null && response != "") {
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
-                                            document.getElementById("UlOrganization").innerHTML += "<li><a style='clear:both;' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "'  class='km-listview-link'><h2 style='padding-bottom: 20px; text-align: center; clear:both'>" + prods.SchoolName + "</h2></a></li>";
+                                            document.getElementById("UlOrganization").innerHTML += "<li><a style='clear:both;' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "'><h2 style='padding-bottom: 20px; text-align: center; clear:both'>" + prods.SchoolName + "</h2></a></li>";
                                             //  $("#UlOrganization").append("<li><a href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' class='km-listview-link' data-role='listview-link'><h2 style='padding-bottom: 20px; text-align: center;'>" + prods.SchoolName + "</h2></a></li>");
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
@@ -384,7 +384,7 @@
                                     if (response != null && response != "") {
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
-                                            $("#UlOrganization").append("<li><a style='clear:both;' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "'  class='km-listview-link' ><h2 style='padding-bottom: 20px; text-align: center; clear:both'>" + prods.SchoolName + "</h2></a></li>");
+                                            $("#UlOrganization").append("<li><a style='clear:both;' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' ><h2 style='padding-bottom: 20px; text-align: center; clear:both'>" + prods.SchoolName + "</h2></a></li>");
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
                                             if (type != '' && type != undefined) {
@@ -562,7 +562,7 @@
 
             <h1 style="margin-top:20px;" id="TitleDisplay">Select an organization to Get in touch</h1>
 
-            <ul data-role="listview" class="NewsDislay" id="UlOrganization"></ul>
+            <ul data-role="listview" id="UlOrganization"></ul>
 
 
         </div>
