@@ -238,7 +238,11 @@ body{background:#FFF;}
 }
 
 #UlOrganization li:hover{
-        background:red;
+        background:rgb(26, 91, 152);
+}
+
+#UlOrganization li a{
+font-size:20px;
 }
 
 /**********************My Dtails Page************************/
