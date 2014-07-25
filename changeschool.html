@@ -73,7 +73,7 @@
                                         //alert(response);
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
-                                            $("#UlOrganization").append("<li><a style='clear:both;text-decoration:none' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' ><h2 style='padding-bottom: 20px; text-align: center;'>" + prods.SchoolName + "</h2></a></li>");
+                                            $("#UlOrganization").append("<li><a style='clear:both;text-decoration:none' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' ><h2 style='padding-bottom: 20px; text-align: center;font-weight:lighter'>" + prods.SchoolName + "</h2></a></li>");
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
                                             if (type != '' && type != undefined) {
@@ -155,7 +155,7 @@
 
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
-                                            document.getElementById("UlOrganization").innerHTML += "<li><a style='clear:both;text-decoration:none' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "'><h2 style='padding-bottom: 20px; text-align: center;'>" + prods.SchoolName + "</h2></a></li>";
+                                            document.getElementById("UlOrganization").innerHTML += "<li><a style='clear:both;text-decoration:none' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "'><h2 style='padding-bottom: 20px; text-align: center;font-weight:lighter'>" + prods.SchoolName + "</h2></a></li>";
                                          //   $("#Something").append("<center><a href='ataglance.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' style='padding: 3px 0px 3px 0px;display:block;width: 190px;text-align:center;text-decoration:none;font-size:17px;margin: 2px 0px 2px 0px;font-family:Arial;'>" + prods.SchoolName + "</a></center>");
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
@@ -232,7 +232,7 @@
                                     if (response != null && response != "") {
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
-                                            $("#UlOrganization").append("<li><a style='clear:both;text-decoration:none' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "'><h2 style='padding-bottom: 20px; text-align: center;'>" + prods.SchoolName + "</h2></a></li>");
+                                            $("#UlOrganization").append("<li><a style='clear:both;text-decoration:none' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "'><h2 style='padding-bottom: 20px; text-align: center;font-weight:lighter'>" + prods.SchoolName + "</h2></a></li>");
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
                                             if (type != '' && type != undefined) {
