@@ -133,7 +133,7 @@
                     for (i = 0; i < Kewords.length; i++) {
                         //  alert(Kewords[i].ChannelId);
                         var GalleryId = Kewords[i].GalleryTypeId;
-                       // $("#UlGalleries").append("<li><label><input type='checkbox' checked='checked' />" + Kewords[i].GalleryTypeName + "</label></li>");
+                        // $("#UlGalleries").append("<li><label><input type='checkbox' checked='checked' />" + Kewords[i].GalleryTypeName + "</label></li>");
                         document.getElementById("UlGalleries").innerHTML += "<li><label class='km-listview-label'><input type='checkbox' checked='checked'  name= '" + Kewords[i].GalleryTypeName + "' value='" + Kewords[i].GalleryTypeId + "' id='" + Kewords[i].GalleryTypeId + "' class='km-widget km-icon km-check' />" + Kewords[i].GalleryTypeName + "</label></li>";
 
                         GetGaleryCheckBoxChecked(GalleryId);
@@ -257,8 +257,7 @@
                 dataType: "json",
                 success: function (response) {
                     var testName = $("#" + ChannelID).attr("name");
-
-                 //   alert("Channel Activated Successfully");
+                    // alert("Channel Activated Successfully");
                     function alertDismissed() {
 
                     }
@@ -268,6 +267,7 @@
                                   '' + testName + '',            // title
                                      'Done'                  // buttonName
                                            );
+
 
                 },
                 failure: function (errMsg) {
@@ -286,12 +286,12 @@
                 dataType: "json",
                 success: function (response) {
                     var testName = $("#" + ChannelID).attr("name");
-                    //alert("Channel DeActivated Successfully");
+                   // alert("Channel DeActivated Successfully");
                     function alertDismissed() {
 
                     }
                     navigator.notification.alert(
-                             'Channel DeActivated Successfully!',  // message
+                             'Channel DeActivated Successfully',  // message
                                  alertDismissed,         // callback
                                   '' + testName + '',            // title
                                      'Done'                  // buttonName
@@ -316,7 +316,6 @@
                 success: function (response) {
                     var testName = $("#" + GalleryId).attr("name");
                    // alert("Gallery Activated Successfully");
-
                     function alertDismissed() {
 
                     }
@@ -326,6 +325,7 @@
                                   '' + testName + '',            // title
                                      'Done'                  // buttonName
                                            );
+
                 },
                 failure: function (errMsg) {
                     $('#errorMessage').text(errMsg); //errorMessage is id of the div GetUserActiveChannels_SchoolIdSchoolUserIdWise
@@ -344,7 +344,7 @@
                 dataType: "json",
                 success: function (response) {
                     var testName = $("#" + GalleryId).attr("name");
-                  //  alert("Gallery DeActivated Successfully");
+                    //alert("Gallery DeActivated Successfully");
                     function alertDismissed() {
 
                     }
@@ -364,7 +364,7 @@
         $(document).ready(function () {
 
 
-           // assignLinks();
+            //   assignLinks();
             GetFunctions();
             $("#lnkLogout").live("click", function () {
                 // alert("yes");
@@ -373,70 +373,69 @@
 
             });
             $("#UlChannels input[type=checkbox]").live('click', function () {
-
-                $(".MenuLinks li a").click(function () {
-                    checkConnection();
-                    if (getconstatus == "No network connection") {
-                        function alertDismissed() {
-
-                        }
-                        navigator.notification.alert(
-                                 'No network connection! First connect with your internet.',  // message
-                                     alertDismissed,         // callback
-                                      'Connection error ',            // title
-                                         'Ok'                  // buttonName
-                                               );
-
-                    }
-                    else {
-                        var checkID = $(this).attr('id');
-                        if ($("#" + checkID).attr('checked')) {
-                            ActivateChannel(checkID);
-                        }
-                        else {
-                            DeActivateChannel(checkID);
-                        }
-
-                    }
-
-
-            });
-            $("#UlGalleries input[type=checkbox]").live('click', function () {
-                $(".MenuLinks li a").click(function () {
-                    checkConnection();
-                    if (getconstatus == "No network connection") {
-                        function alertDismissed() {
-
-                        }
-                        navigator.notification.alert(
-                                 'No network connection! First connect with your internet.',  // message
-                                     alertDismissed,         // callback
-                                      'Connection error ',            // title
-                                         'Ok'                  // buttonName
-                                               );
-
-                    }
-                    else {
-                        var GalleryCheckId = $(this).attr('id');
-                        if ($("#" + GalleryCheckId).attr('checked')) {
-                            ActivateGallry(GalleryCheckId);
-                        }
-                        else {
-                            DeActivateGallery(GalleryCheckId);
-                        }
-                    }
-            });
-            $(".MenuLinks li a").click(function () {
                 checkConnection();
                 if (getconstatus == "No network connection") {
+                    // alert("No network connection! First connect with your internet.");
                     function alertDismissed() {
 
                     }
                     navigator.notification.alert(
                              'No network connection! First connect with your internet.',  // message
                                  alertDismissed,         // callback
-                                  'Connection error ',            // title
-                                     'Ok'                  // buttonName
+                                  '' + testName + '',            // title
+                                     'Done'                  // buttonName
+                                           );
+
+                }
+                else {
+
+                    var checkID = $(this).attr('id');
+                    if ($("#" + checkID).attr('checked')) {
+                        ActivateChannel(checkID);
+                    }
+                    else {
+                        DeActivateChannel(checkID);
+                    }
+                }
+
+            });
+            $("#UlGalleries input[type=checkbox]").live('click', function () {
+                checkConnection();
+                if (getconstatus == "No network connection") {
+                    // alert("No network connection! First connect with your internet.");
+                    function alertDismissed() {
+
+                    }
+                    navigator.notification.alert(
+                             'No network connection! First connect with your internet.',  // message
+                                 alertDismissed,         // callback
+                                  '' + testName + '',            // title
+                                     'Done'                  // buttonName
+                                           );
+
+                }
+                else {
+                    var GalleryCheckId = $(this).attr('id');
+                    if ($("#" + GalleryCheckId).attr('checked')) {
+                        ActivateGallry(GalleryCheckId);
+                    }
+                    else {
+                        DeActivateGallery(GalleryCheckId);
+                    }
+                }
+            });
+            $(".MenuLinks li a").click(function () {
+                checkConnection();
+                if (getconstatus == "No network connection") {
+                    //alert("No network connection! First connect with your internet.");
+                    function alertDismissed() {
+
+                    }
+                    navigator.notification.alert(
+                             'No network connection! First connect with your internet.',  // message
+                                 alertDismissed,         // callback
+                                  '' + testName + '',            // title
+                                     'Done'                  // buttonName
                                            );
 
                 }
@@ -445,7 +444,7 @@
                     var schoolId = getUrlVars()["value"];
                     var schooluserid = getUrlVars()["userId"];
                     var username = getUrlVars()["username"];
-                    //  alert(Id);
+                    // alert(Id);
 
                     window.location = "" + Id + ".html?value=" + schoolId + "&userId=" + schooluserid + "&username=" + username + "";
                 }
@@ -469,7 +468,6 @@
         }
 
     </script>
-
     
     
 </head>
