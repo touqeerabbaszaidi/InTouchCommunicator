@@ -139,8 +139,8 @@
                 var path = $(this).attr("id");
                // alert(path);
                 //downloadFile(path);
-                var prods = "http://intouchcommunicator.com/WebCommunicator/ViewResourceFileAndroid.aspx?filepath=" + path;
-                var ref = window.open(prods, '_blank', 'location=yes');
+                var prods = "http://intouchcommunicator.com/WebCommunicator/ViewResourceFile.aspx?filepath=" + path;
+                var ref = window.open(prods, '_self', 'location=yes');
                 
             });
             $(".MenuLinks li a").click(function () {
