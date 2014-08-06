@@ -140,7 +140,7 @@
                // alert(path);
                 //downloadFile(path);
                 var prods = "http://intouchcommunicator.com/WebCommunicator/ViewResourceFile.aspx?filepath=" + path;
-                var ref = window.open(prods, '_system', 'location=yes');
+                var ref = window.open(prods, '_blank', 'location=no');
                 
             });
             $(".MenuLinks li a").click(function () {
@@ -149,6 +149,7 @@
                     function alertDismissed() {
 
                     }
+
                     navigator.notification.alert(
                              'No network connection! First connect with your internet.',  // message
                                  alertDismissed,         // callback
