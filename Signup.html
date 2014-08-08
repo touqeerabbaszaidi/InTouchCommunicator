@@ -46,7 +46,17 @@
         //function registerPushMethod() {//alert('test method');
         //    registerPushwoosh($('#txtEmail').val());
         //}
+        function WindowAlert(message) {
+            function alertDismissed() {
 
+            }
+            navigator.notification.alert(
+                     ''+ message,  // message
+                         alertDismissed,         // callback
+                          '',            // title
+                             'Ok'                  // buttonName
+                                   );
+        }
         function GetAllSchools() {
             $.ajax({
                 url: 'http://mobile.intouchcommunicator.com/WebService.asmx/GetAllSchoolSchoolNameAsc',
@@ -86,7 +96,7 @@
                 var EmailFormat = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
                 if ($("#txtFirstName").val() == "")
                 {
-                    alert("Please enter your firstname");
+                    WindowAlert("Please enter your firstname");
                     $("#txtFirstName").focus();
                 }
                 else if ($("#txtLastName").val() == "")
