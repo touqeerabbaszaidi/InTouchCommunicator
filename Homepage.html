@@ -7,6 +7,7 @@
 <title>InTouchApp</title>
 
 <script src="JS/jquery.min.js"></script>
+    <script src="JS/angular.min.js"></script>
 <script src="JS/kendo.all.min.js"></script>
 <link href="Css/kendo.mobile.all.min.css" rel="stylesheet" />
 <link href="Css/kendo.all.min.js" rel="stylesheet" />
@@ -46,7 +47,24 @@
 
             //alert('Connection type: ' + states[networkState]);
         }
+        function initPullToRefreshScroller(e) {
 
+            GetNews();
+            GetCalender();
+
+            var scroller = e.view.scroller;
+
+            scroller.setOptions({
+                pullToRefresh: true,
+                pull: function () {
+                    document.getElementById("UlCalender").innerHTML = "";
+                    document.getElementById("UlNews").innerHTML = "";
+                    GetNews();
+                    GetCalender();
+                    setTimeout(function () { scroller.pullHandled(); }, 400);
+                }
+            })
+        }
         $(document).ready(function () {
           // assignLinks();
            $("#lnkLogout").live("click", function () {
@@ -56,9 +74,9 @@
                window.location = "index.html";
                
                });
-            GetNews();
+           // GetNews();
             //alert("Get Calender");
-            GetCalender();
+          //  GetCalender();
            // alert("Perfect");
             GetUsername();
             GetSchoolInfo();
@@ -235,26 +253,26 @@
 
 <body>
 
-    <div data-role="view" id="drawer-home" data-layout="drawer-layout" data-title="">
-    
-    <h1 id="TitleDisplay">News</h1>    
+    <div data-role="view" id="drawer-home" data-layout="drawer-layout" data-title="" data-init="initPullToRefreshScroller">
+
+        <h1 id="TitleDisplay">News</h1>
         <ul data-role="listview" class="NewsDislay km-widget km-listview km-list" id="UlNews">
             <!--<li>
-        <a>
-            <h2>News Title here displayed</h2>
-            <p>28-5-2014, Wednesday</p>
-        </a>
-        </li>
-        <li>
-        <a>
-            <h2>News Title here displayed</h2>
-            <p>28-5-2014, Wednesday</p>
-        </a>
-        </li>-->
+            <a>
+                <h2>News Title here displayed</h2>
+                <p>28-5-2014, Wednesday</p>
+            </a>
+            </li>
+            <li>
+            <a>
+                <h2>News Title here displayed</h2>
+                <p>28-5-2014, Wednesday</p>
+            </a>
+            </li>-->
         </ul>
 
 
-    <h1 id="TitleDisplay">Calender</h1>    
+        <h1 id="TitleDisplay">Calender</h1>
         <ul data-role="listview" class="NewsDislay km-widget km-listview km-list" id="UlCalender">
             <!--<li>
                 <a>
@@ -269,8 +287,8 @@
                 </a>
             </li>-->
         </ul>
-    
-</div>
+
+    </div>
 
 
 <div data-role="drawer" id="my-drawer" style="width: 250px;">
