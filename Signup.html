@@ -101,62 +101,62 @@
                 }
                 else if ($("#txtLastName").val() == "")
                 {
-                    alert("Please enter your lastname");
+                    WindowAlert("Please enter your lastname");
                     $("#txtLastName").focus();
                 }
                 else if ($("#txtEmail").val() == "")
                 {
-                    alert("Please enter your email");
+                    WindowAlert("Please enter your email");
                     $("#txtEmail").focus();
                 }
                 else if (!EmailFormat.test($("#txtEmail").val())) {
-                    alert("Please enter a valid email");
+                    WindowAlert("Please enter a valid email");
                     $("#txtEmail").focus();
                 }
                 else if ($("#txtPhone").val() == "")
                 {
-                    alert("Please enter your phone no");
+                    WindowAlert("Please enter your phone no");
                     $("#txtPhone").focus();
                 }
                 else if ($("#txtAddress").val() == "")
                 {
-                    alert("Please enter your address");
+                    WindowAlert("Please enter your address");
                     $("#txtAddress").focus();
 
                 }
                 else if ($("#txtCity").val() == "")
                 {
-                    alert("Please enter your city");
+                    WindowAlert("Please enter your city");
                     $("#txtCity").focus();
                 }
                 else if ($("#txtState").val() == "")
                 {
-                    alert("Please select a state");
+                    WindowAlert("Please select a state");
                     $("#txtState").focus();
                 }
                 else if ($("#txtZipCode").val() == "")
                 {
-                    alert("Please enter zipcode");
+                    WindowAlert("Please enter zipcode");
                     $("#txtZipCode").focus();
                 }
                 else if ($("#txtPassword").val() == "")
                 {
-                    alert("Please enter your password");
+                    WindowAlert("Please enter your password");
                     $("#txtPassword").focus();
                 }
                 else if ($("#txtRePassword").val() == "")
                 {
-                    alert("Please confirm the password");
+                    WindowAlert("Please confirm the password");
                     $("#txtRePassword").focus();
                 }
                 else if ($("#ddlBusinesses").val() == "Select")
                 {
-                    alert("Please select a business");
+                    WindowAlert("Please select a business");
                     $("#ddlBusinesses").focus();
                 }
                 else if ($("#txtPassword").val() != $("#txtRePassword").val())
                 {
-                    alert("Password does not match");
+                    WindowAlert("Password does not match");
                     $("#txtPassword").focus();
                 }
                 else
