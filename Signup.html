@@ -208,7 +208,10 @@
             }
         }
         $(document).ready(function () {
-           // var validator = $("#drawer-home").kendoValidator().data("kendoValidator");
+            $('#btnBack').click(function () {
+                
+                window.location = "index.html";
+            });
             GetAllSchools();
         });
       
@@ -341,7 +344,7 @@
                 </a>-->
                 <input type="image" src="Images/br_prev.png" id="btnBack" width="40" height="40" data-align="left" style="margin-top:-21px;" />
                 <span data-role="view-title" id="BusinessTitle"></span>
-                <!-- <a data-align="right" data-role="button" class="nav-button" href="#/">Index</a> -->
+               
             </div>
         </header>
     </div>
