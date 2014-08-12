@@ -216,7 +216,7 @@
 </head>
 <body>
 
-    <div data-role="view" id="drawer-home" data-layout="drawer-layout" data-title="Business Title">
+    <div data-role="view" id="drawer-home" data-layout="drawer-layout" data-title="InTouchCommunicator">
 
 
         <div class="LoginContainer" id="wraper">
@@ -333,7 +333,18 @@
 
         </div>
     </div>
-
+    <div data-role="layout" data-id="drawer-layout">
+        <header data-role="header">
+            <div data-role="navbar">
+                <!--<a data-role="button" data-rel="drawer" href="#my-drawer" data-align="left">
+                    <img src="Images/SwipeMenuICO.png" id="MenuICOBtn" />
+                </a>-->
+                <input type="image" src="Images/br_prev.png" id="btnBack" width="40" height="40" data-align="left" style="margin-top:-21px;" />
+                <span data-role="view-title" id="BusinessTitle"></span>
+                <!-- <a data-align="right" data-role="button" class="nav-button" href="#/">Index</a> -->
+            </div>
+        </header>
+    </div>
 
 
 
