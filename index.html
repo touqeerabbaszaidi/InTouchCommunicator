@@ -207,6 +207,7 @@
                         $.each(prods, function (index, prod) {
                             var schooluserid = prod.SchoolUserId;
                             var username = prod.FirstName + " " + prod.LastName;
+                            var AccountActive = prod.IsActive;
                             $.ajax({
                                 type: "POST",
                                 url: 'http://mobile.intouchcommunicator.com/WebService.asmx/GetSchools_SchoolCodeWise',
@@ -221,7 +222,11 @@
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
 
-                                            $("#UlOrganization").append("<li><a style='clear:both;text-decoration:none' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' ><h3 style='text-align: center; clear:both;font-weight:lighter'>" + prods.SchoolName + "</h3></a></li>");
+                                            if (AccountActive == false) {
+                                                $("#UlOrganization").append("<li><a class='km-listview-link'><h2 style='padding-bottom: 20px; text-align: center;'>" + prods.SchoolName + " (Pending)</h2></a></li>");
+                                            } else {
+                                                $("#UlOrganization").append("<li><a href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' class='km-listview-link'><h2 style='padding-bottom: 20px; text-align: center;'>" + prods.SchoolName + "</h2></a></li>");
+                                            }
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
                                             if (type != '' && type != undefined) {
@@ -564,7 +569,9 @@
 
             <ul data-role="listview" id="UlOrganization"></ul>
 
-
+            <div class="RequestAccess">
+                <a href="RequestAccess.html">Add Organization</a>
+            </div>
         </div>
         <div id="dvLoading"></div>
     </div>
