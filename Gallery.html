@@ -14,7 +14,7 @@
 <script type="text/javascript" src="JS/jquery.Storage.js"></script>
 <script src="JS/jquery-1.8.3.js" type="text/javascript"></script>
     <script type="text/javascript" charset="utf-8" src="cordova.ios.js"></script>
-
+    <script type="text/javascript" src="PushNotification.js"></script>
 <script language="javascript">
 
 $(document).ready(function(e) {
@@ -60,6 +60,38 @@ $(document).ready(function(e) {
 
         function onDeviceReady() {
             checkConnection();
+            document.addEventListener("resume", onResume, false);
+        }
+        function InitPushRecived() {
+            //  alert("yes");
+            var schoolId = getUrlVars()["value"];
+            var schooluserid = getUrlVars()["userId"];
+            var username = getUrlVars()["username"];
+            var pushNotification = window.plugins.pushNotification;
+            pushNotification.onDeviceReady();
+            document.addEventListener('push-notification', function (event) {
+                var title = event.notification.title;
+                var userData = event.notification.userdata;
+
+                if (typeof (userData) != "undefined") {
+                    console.warn('user data: ' + JSON.stringify(userData));
+                }
+                //alert("Title: " + title);
+                //  navigator.notification.alert(title);
+                var splitted = title.split("~");
+                //  alert(splitted[2]);
+                if (splitted[2] == schoolId) {
+                    window.location.href = "Homepage.html?value=" + schoolId + "&userId=" + schooluserid + "&username=" + username + "";
+                }
+                else {
+                    window.location.href = "changeschool.html?type=" + splitted[0] + "&schoolId=" + splitted[2] + "";
+                }
+                pushNotification.stopGeoPushes();
+            });
+        }
+        function onResume() {
+
+            InitPushRecived();
         }
 
         var getconstatus;
@@ -313,7 +345,7 @@ $(document).ready(function(e) {
     
 </head>
 
-<body>
+<body onload="InitPushRecived();">
 
 
 
