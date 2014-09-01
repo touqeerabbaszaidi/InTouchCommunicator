@@ -1,5 +1,25 @@
 
+function initPushwoosh() {
+    //alert("Init-push");
+    var pushNotification = window.plugins.pushNotification;
+    pushNotification.onDeviceReady();
 
+    document.addEventListener('push-notification', function (event) {
+        var title = event.notification.title;
+        var userData = event.notification.userdata;
+
+        if (typeof (userData) != "undefined") {
+            console.warn('user data: ' + JSON.stringify(userData));
+        }
+        //alert("Title: " + title);
+        navigator.notification.alert(title);
+        var splitted = title.split("~");
+        //alert("Index Js Type: " + splitted[0]);
+        alert("Index Js SchoolId: " + splitted[2]);
+        window.location.href = "index.html?type=" + splitted[0] + "&schoolId=" + splitted[2] + "";
+        pushNotification.stopGeoPushes();
+    });
+}
 
 
 function registerPushwooshIOS(email) {
