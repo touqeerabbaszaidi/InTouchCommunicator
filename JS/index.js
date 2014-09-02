@@ -9,12 +9,12 @@ function initPushwoosh() {
         alert(title.aps.alert);
         pushNotification.setApplicationIconBadgeNumber(+1);
        
-        if (typeof (userData) != "undefined") {
-            console.warn('user data: ' + JSON.stringify(userData));
-        }
+        //if (typeof (userData) != "undefined") {
+        //    console.warn('user data: ' + JSON.stringify(userData));
+        //}
         //alert("Title: " + title);
         //navigator.notification.alert(title);
-        var splitted = title.split("~");
+        var splitted = title.aps.alert.split("~");
         //alert("Index Js Type: " + splitted[0]);
         alert("Index Js SchoolId: " + splitted[2]);
         window.location.href = "index.html?type=" + splitted[0] + "&schoolId=" + splitted[2] + "";
