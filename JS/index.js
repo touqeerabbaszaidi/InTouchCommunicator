@@ -92,20 +92,20 @@ function InsertPushToken(email, deviceToken) {
 
 
 
-function initPushwoosh() {
-   // alert("initpushwoosh");
-    var pushNotification = window.plugins.pushNotification;
-    //if (device.platform == "Android") {
-    //    registerPushwooshAndroid();
-    //    pushNotification.onDeviceReady();
-    //}
+//function initPushwoosh() {
+//   // alert("initpushwoosh");
+//    var pushNotification = window.plugins.pushNotification;
+//    //if (device.platform == "Android") {
+//    //    registerPushwooshAndroid();
+//    //    pushNotification.onDeviceReady();
+//    //}
 
-    if (device.platform == "iPhone" || device.platform == "iOS") {
-        registerPushwooshIOS(email);
-        pushNotification.onDeviceReady();
-       // alert("initPW success");
-    }
-}
+//    if (device.platform == "iPhone" || device.platform == "iOS") {
+//        registerPushwooshIOS(email);
+//        pushNotification.onDeviceReady();
+//       // alert("initPW success");
+//    }
+//}
 
 var app = {
     // Application Constructor
