@@ -184,7 +184,7 @@
             //alert(schooluserid);
             $.ajax({
                 //url: 'http://projectxmobile.2bvision.com/WebService.asmx/GetNews_NewsSchoolUserIdWise',
-                url: 'http://mobile.intouchcommunicator.com/WebService.asmx/GetNews_NewsSchoolUserIdWise',
+                url: 'http://mobile.intouchcommunicator.com/WebService.asmx/GetNews_NewsEmergencySchoolIdWise',
                 //url: 'WebService.asmx/GetNews_NewsSchoolUserIdWise',
                 type: 'POST',
                 data: "{'SchoolId': '" + schoolid + "','SchoolUserId':'" + schooluserid + "'}",
@@ -198,7 +198,12 @@
                         //alert("SuccessFull Operation");
                         var date = new Date(parseInt(Kewords[i].CreatedDate.substr(6)));
                         var createdDate = [date.getDate(), date.getMonth() + 1, date.getFullYear()].join('-');
-                        document.getElementById("UlNews").innerHTML += "<li><a class='km-listview-link' href='newsdetail.html?value=" + schoolid + "&userId=" + schooluserid + "&username=" + username + "&newsId=" + Kewords[i].NewsId + "'><h2>" + Kewords[i].NewsHeading + "</h2><p>"+ createdDate + " </p></a></li>";
+                        if (Kewords[i].Emergency == true) {
+                            document.getElementById("UlNews").innerHTML += "<li><a class='km-listview-link' href='newsdetail.html?value=" + schoolid + "&userId=" + schooluserid + "&username=" + username + "&newsId=" + Kewords[i].NewsId + "'><h2 style='color:#ff0034'>" + Kewords[i].NewsHeading + "</h2><p style='color:#ff0034'>" + createdDate + " </p></a></li>";
+                        }
+                        else {
+                            document.getElementById("UlNews").innerHTML += "<li><a class='km-listview-link' href='newsdetail.html?value=" + schoolid + "&userId=" + schooluserid + "&username=" + username + "&newsId=" + Kewords[i].NewsId + "'><h2>" + Kewords[i].NewsHeading + "</h2><p>" + createdDate + " </p></a></li>";
+                        }
                     }
 
                 },
