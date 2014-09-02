@@ -38,15 +38,10 @@
             var pushNotification = window.plugins.pushNotification;
             pushNotification.onDeviceReady();
             document.addEventListener('push-notification', function (event) {
-                var title = event.notification.title;
-                var userData = event.notification.userdata;
-
-                if (typeof (userData) != "undefined") {
-                    console.warn('user data: ' + JSON.stringify(userData));
-                }
+                var title = event.notification;
+                var splitted = title.aps.alert.split("~");
                 //alert("Title: " + title);
-                //  navigator.notification.alert(title);
-                var splitted = title.split("~");
+               
                 //  alert(splitted[2]);
                 if (splitted[2] == schoolId) {
                     window.location.href = "Homepage.html?value=" + schoolId + "&userId=" + schooluserid + "&username=" + username + "";
