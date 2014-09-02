@@ -6,9 +6,9 @@ function initPushwoosh() {
 
     document.addEventListener('push-notification', function (event) {
         var title = event.notification;
+        alert(title.aps.alert);
         pushNotification.setApplicationIconBadgeNumber(+1);
-        alert(title.userData);
-        alert(title.title);
+       
         if (typeof (userData) != "undefined") {
             console.warn('user data: ' + JSON.stringify(userData));
         }
