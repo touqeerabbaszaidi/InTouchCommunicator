@@ -6,7 +6,7 @@ function initPushwoosh() {
 
     document.addEventListener('push-notification', function (event) {
         var title = event.notification;
-        alert(title.aps.alert);
+       // alert(title.aps.alert);
         pushNotification.setApplicationIconBadgeNumber(+1);
        
         //if (typeof (userData) != "undefined") {
@@ -16,7 +16,7 @@ function initPushwoosh() {
         //navigator.notification.alert(title);
         var splitted = title.aps.alert.split("~");
         //alert("Index Js Type: " + splitted[0]);
-        alert("Index Js SchoolId: " + splitted[2]);
+       // alert("Index Js SchoolId: " + splitted[2]);
         window.location.href = "index.html?type=" + splitted[0] + "&schoolId=" + splitted[2] + "";
         pushNotification.stopGeoPushes();
     });
