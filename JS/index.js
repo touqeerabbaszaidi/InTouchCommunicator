@@ -1,13 +1,13 @@
 
 function initPushwoosh() {
-    alert("Init-push");
+    //alert("Init-push");
     var pushNotification = window.plugins.pushNotification;
     pushNotification.onDeviceReady();
 
     document.addEventListener('push-notification', function (event) {
-        var title = event.notification.title;
-        var userData = event.notification.userdata;
-
+        var title = event.notification;
+        pushNotification.setApplicationIconBadgeNumber(+1);
+        alert(title);
         if (typeof (userData) != "undefined") {
             console.warn('user data: ' + JSON.stringify(userData));
         }
