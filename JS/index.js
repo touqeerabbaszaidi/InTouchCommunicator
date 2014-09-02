@@ -1,6 +1,6 @@
 
 function initPushwoosh() {
-    //alert("Init-push");
+    alert("Init-push");
     var pushNotification = window.plugins.pushNotification;
     pushNotification.onDeviceReady();
 
@@ -12,7 +12,7 @@ function initPushwoosh() {
             console.warn('user data: ' + JSON.stringify(userData));
         }
         //alert("Title: " + title);
-        navigator.notification.alert(title);
+        //navigator.notification.alert(title);
         var splitted = title.split("~");
         //alert("Index Js Type: " + splitted[0]);
         alert("Index Js SchoolId: " + splitted[2]);
@@ -28,7 +28,7 @@ function registerPushwooshIOS(email) {
     //push notifications handler
     document.addEventListener('push-notification', function (event) {
         var notification = event.notification;
-        navigator.notification.alert(notification.aps.alert);
+      //  navigator.notification.alert(notification.aps.alert);
 
         //to view full push payload
         //navigator.notification.alert(JSON.stringify(notification));
