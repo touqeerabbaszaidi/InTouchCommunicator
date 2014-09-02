@@ -198,7 +198,7 @@
                         //alert("SuccessFull Operation");
                         var date = new Date(parseInt(Kewords[i].CreatedDate.substr(6)));
                         var createdDate = [date.getDate(), date.getMonth() + 1, date.getFullYear()].join('-');
-                        alert(Kewords[i].Emergency);
+                       // alert(Kewords[i].Emergency);
                         if (Kewords[i].Emergency == true) {
                             document.getElementById("UlNews").innerHTML += "<li><a class='km-listview-link' href='newsdetail.html?value=" + schoolid + "&userId=" + schooluserid + "&username=" + username + "&newsId=" + Kewords[i].NewsId + "'><h2 style='color:#ff0034'>" + Kewords[i].NewsHeading + "</h2><p style='color:#ff0034'>" + createdDate + " </p></a></li>";
                         }
