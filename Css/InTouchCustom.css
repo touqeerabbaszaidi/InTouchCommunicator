@@ -451,3 +451,15 @@ font-size:20px;
 	font-size:18px;
 	font-weight:500;
 }
+.RequestAccess
+{
+ padding: 10px 0px 10px 10px;
+display: block;
+font-weight: 500;
+border-bottom: 1px solid #f2f2f2;
+background: #f2f2f2;
+font-size: 20px;
+ margin:0 auto;
+ width:100%;
+ text-align:center;
+ bottom:20px; 
