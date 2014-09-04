@@ -348,13 +348,14 @@
                         //alert(BusinessId);
                         GetBusinessBusinessTypewise(BusinessId);
                     }
-                    $('#btnBack').click(function () {
-
-                        window.location = "changeschool.html";
-                    });
+                   
                 }
             });
-           // var validator = $("#drawer-home").kendoValidator().data("kendoValidator");
+            // var validator = $("#drawer-home").kendoValidator().data("kendoValidator");
+            $('#btnBack').click(function () {
+
+                window.location = "changeschool.html";
+            });
             GetAllSchools();
             GetAllBusinessTypes();
         });
