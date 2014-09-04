@@ -224,9 +224,9 @@
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
 
                                             if (AccountActive == false) {
-                                                $("#UlOrganization").append("<li><a style='clear:both;text-decoration:none'><h2 style='text-align: center; clear:both;font-weight:lighter;'>" + prods.SchoolName + " (Pending)</h2></a></li>");
+                                                $("#UlOrganization").innerHTML += "<li><a style='clear:both;text-decoration:none'><h2 style='text-align: center; clear:both;font-weight:lighter;'>" + prods.SchoolName + " (Pending)</h2></a></li>";
                                             } else {
-                                                $("#UlOrganization").append("<li><a style='clear:both;text-decoration:none' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "'><h2 style='text-align: center; clear:both;font-weight:lighter;'>" + prods.SchoolName + "</h2></a></li>");
+                                                $("#UlOrganization").innerHTML += "<li><a style='clear:both;text-decoration:none' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "'><h2 style='text-align: center; clear:both;font-weight:lighter;'>" + prods.SchoolName + "</h2></a></li>";
                                             }
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
@@ -311,7 +311,7 @@
                                     if (response != null && response != "") {
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
-                                            document.getElementById("UlOrganization").append("<li><a style='clear:both;text-decoration:none' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "'><h3 style='text-align: center; clear:both;font-weight:lighter;'>" + prods.SchoolName + "</h3></a></li>");
+                                            document.getElementById("UlOrganization").innerHTML += "<li><a style='clear:both;text-decoration:none' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "'><h3 style='text-align: center; clear:both;font-weight:lighter;'>" + prods.SchoolName + "</h3></a></li>";
                                             //  $("#UlOrganization").append("<li><a href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' class='km-listview-link' data-role='listview-link'><h2 style='padding-bottom: 20px; text-align: center;'>" + prods.SchoolName + "</h2></a></li>");
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
@@ -390,7 +390,7 @@
                                     if (response != null && response != "") {
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
-                                            $("#UlOrganization").append("<li><a style='clear:both;text-decoration:none' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' ><h3 style='text-align: center; clear:both;font-weight:lighter;'>" + prods.SchoolName + "</h3></a></li>");
+                                            $("#UlOrganization").innerHTML += "<li><a style='clear:both;text-decoration:none' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "' ><h3 style='text-align: center; clear:both;font-weight:lighter;'>" + prods.SchoolName + "</h3></a></li>";
                                             var type = getUrlVars()["type"];
                                             var schoolId = getUrlVars()["schoolId"];
                                             if (type != '' && type != undefined) {
