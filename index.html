@@ -222,10 +222,12 @@
                                         //alert(response);
                                         var prods = response.d;
                                         if (prods.SchoolName != "" && prods.SchoolName != null) {
-                                            alert(AccountActive);
+                                           
                                             if (AccountActive == false) {
+                                                alert(AccountActive);
                                                 $("#UlOrganization").innerHTML += "<li><a style='clear:both;text-decoration:none'><h2 style='text-align: center; clear:both;font-weight:lighter;'>" + prods.SchoolName + " (Pending)</h2></a></li>";
                                             } else {
+                                                alert(AccountActive);
                                                 $("#UlOrganization").innerHTML += "<li><a style='clear:both;text-decoration:none' href='Homepage.html?value=" + prods.SchoolId + "&userId=" + schooluserid + "&username=" + username + "'><h2 style='text-align: center; clear:both;font-weight:lighter;'>" + prods.SchoolName + "</h2></a></li>";
                                             }
                                             var type = getUrlVars()["type"];
