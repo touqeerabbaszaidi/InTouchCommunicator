@@ -326,7 +326,17 @@
 
 <body onload="InitPushRecived();">
 
-    <div data-role="view" id="drawer-home" data-layout="drawer-layout" data-title="Business Title"> 
+    <div data-role="view" id="drawer-home" data-layout="drawer-layout" data-title="Business Title">
+    
+    
+    <div class="LoginContainer">
+
+
+	<div class="logo">
+    	<img src="Images/logo.png" />
+    </div>
+
+    </div> 
     
         
 <h1 style="margin-top:20px;" id="TitleDisplay">Please select an Organization to Get in touch</h1>  
@@ -344,15 +354,14 @@
         </div>
 </div>
 
-    <div data-role="layout" data-id="drawer-layout">
+    <div data-role="layout" data-id="drawer-layout" style="display:none">
         <header data-role="header">
-            <div class="LoginContainer">
-
-
-                <div class="logo">
-                    <img src="Images/logo.png" />
-                </div>
-
+            <div data-role="navbar">
+                <a data-role="button" data-rel="drawer" href="#my-drawer" data-align="left">
+                    <img src="Images/SwipeMenuICO.png" id="MenuICOBtn" />
+                </a>
+                
+                <!-- <a data-align="right" data-role="button" class="nav-button" href="#/">Index</a> -->
             </div>
         </header>
     </div>
